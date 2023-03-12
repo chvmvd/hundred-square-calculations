@@ -15,3 +15,11 @@ runs:
       env:
         BASE_URL: ${{ inputs.base-url }}
       shell: bash
+
+    - name: Export
+      run: npm run export
+      shell: bash
+
+    - name: Add nojekyll
+      run: touch out/.nojekyll
+      shell: bash

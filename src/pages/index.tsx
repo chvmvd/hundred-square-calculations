@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { InlineMath } from "react-katex";
-import "katex/dist/katex.min.css";
+import HundredSquareCalculationsTable from "../components/HundredSquareCalculationsTable";
 
 function calculateRandomNumbers() {
   return [...Array(9)].map((_) => Math.ceil(Math.random() * 9));
@@ -16,32 +15,12 @@ export default function Home() {
   return (
     <>
       <main>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <InlineMath>+</InlineMath>
-              </td>
-              {leftNumbers.map((leftNumber, i) => (
-                <td key={i}>
-                  <InlineMath>{`${leftNumber}`}</InlineMath>
-                </td>
-              ))}
-            </tr>
-            {rightNumbers.map((rightNumber, i) => (
-              <tr key={i}>
-                <td>
-                  <InlineMath>{`${rightNumber}`}</InlineMath>
-                </td>
-                {leftNumbers.map((leftNumber, j) => (
-                  <td key={`${i},${j}`}>
-                    <InlineMath>{`${leftNumber + rightNumber}`}</InlineMath>
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <HundredSquareCalculationsTable
+          mathOperator="+"
+          leftItems={leftNumbers}
+          rightItems={rightNumbers}
+          calculateFunction={(leftItem, rightItem) => leftItem + rightItem}
+        />
       </main>
     </>
   );

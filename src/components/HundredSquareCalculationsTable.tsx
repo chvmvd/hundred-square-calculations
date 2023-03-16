@@ -6,11 +6,13 @@ export default function HundredSquareCalculationsTable<Item>({
   leftItems,
   rightItems,
   calculateFunction,
+  willShowAnswer = true,
 }: {
   mathOperator: string;
   leftItems: Item[];
   rightItems: Item[];
   calculateFunction: (leftItem: Item, rightItem: Item) => Item;
+  willShowAnswer?: boolean;
 }) {
   return (
     <>
@@ -33,10 +35,9 @@ export default function HundredSquareCalculationsTable<Item>({
               </td>
               {leftItems.map((leftItem, j) => (
                 <td key={`${i},${j}`}>
-                  <InlineMath>{`${calculateFunction(
-                    leftItem,
-                    rightItem
-                  )}`}</InlineMath>
+                  <InlineMath>{`${
+                    willShowAnswer ? calculateFunction(leftItem, rightItem) : ""
+                  }`}</InlineMath>
                 </td>
               ))}
             </tr>

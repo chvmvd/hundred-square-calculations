@@ -1,16 +1,16 @@
 import { InlineMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
-export default function HundredSquareCalculationsTable({
+export default function HundredSquareCalculationsTable<Item>({
   mathOperator,
   leftItems,
   rightItems,
   calculateFunction,
 }: {
   mathOperator: string;
-  leftItems: number[];
-  rightItems: number[];
-  calculateFunction: (leftItem: number, rightItem: number) => number;
+  leftItems: Item[];
+  rightItems: Item[];
+  calculateFunction: (leftItem: Item, rightItem: Item) => Item;
 }) {
   return (
     <>

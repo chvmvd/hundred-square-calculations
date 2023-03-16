@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <HundredSquareCalculationsTable
+        <HundredSquareCalculationsTable<number>
           mathOperator="+"
           leftItems={leftNumbers}
           rightItems={rightNumbers}

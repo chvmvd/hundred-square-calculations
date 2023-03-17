@@ -9,6 +9,7 @@ function calculateRandomNumbers() {
 export default function Home() {
   const [leftNumbers, setLeftNumbers] = useState([...Array(9)].map(() => 1));
   const [rightNumbers, setRightNumbers] = useState([...Array(9)].map(() => 1));
+  const [willShowAnswer, setWillShowAnswer] = useState(false);
   useEffect(() => {
     setLeftNumbers(calculateRandomNumbers());
     setRightNumbers(calculateRandomNumbers());
@@ -20,13 +21,21 @@ export default function Home() {
           <Typography variant="h5" component="h2" flexGrow={1}>
             Addition
           </Typography>
-          <Button variant="outlined">解答を表示</Button>
+          <Button
+            variant="outlined"
+            onClick={() => {
+              setWillShowAnswer(!willShowAnswer);
+            }}
+          >
+            {willShowAnswer ? "Hide Answer" : "Show Answer"}
+          </Button>
         </Stack>
         <HundredSquareCalculationsTable<number>
           mathOperator="+"
           leftItems={leftNumbers}
           rightItems={rightNumbers}
           calculateFunction={(leftItem, rightItem) => leftItem + rightItem}
+          willShowAnswer={willShowAnswer}
         />
       </main>
     </>

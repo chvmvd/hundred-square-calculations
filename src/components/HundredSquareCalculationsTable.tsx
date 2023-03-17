@@ -43,7 +43,11 @@ export default function HundredSquareCalculationsTable<Item>({
                   <InlineMath>{`${rightItem}`}</InlineMath>
                 </TableCell>
                 {leftItems.map((leftItem, j) => (
-                  <TableCell key={`${i}, ${j}`} align="center">
+                  <TableCell
+                    key={`${i}, ${j}`}
+                    align="center"
+                    sx={{ color: "red" }}
+                  >
                     <InlineMath>{`${
                       willShowAnswer
                         ? calculateFunction(leftItem, rightItem)

@@ -1,5 +1,13 @@
 import { InlineMath } from "react-katex";
 import "katex/dist/katex.min.css";
+import {
+  Paper,
+  TableContainer,
+  Table,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@mui/material";
 
 export default function HundredSquareCalculationsTable<Item>({
   mathOperator,
@@ -16,34 +24,38 @@ export default function HundredSquareCalculationsTable<Item>({
 }) {
   return (
     <>
-      <table>
-        <tbody>
-          <tr key={0}>
-            <td key={"0, 0"}>
-              <InlineMath>{mathOperator}</InlineMath>
-            </td>
-            {leftItems.map((leftItem, i) => (
-              <td key={`0, ${i}`}>
-                <InlineMath>{`${leftItem}`}</InlineMath>
-              </td>
-            ))}
-          </tr>
-          {rightItems.map((rightItem, i) => (
-            <tr key={i}>
-              <td key={`${i}, 0`}>
-                <InlineMath>{`${rightItem}`}</InlineMath>
-              </td>
-              {leftItems.map((leftItem, j) => (
-                <td key={`${i}, ${j}`}>
-                  <InlineMath>{`${
-                    willShowAnswer ? calculateFunction(leftItem, rightItem) : ""
-                  }`}</InlineMath>
-                </td>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableBody>
+            <TableRow key={0}>
+              <TableCell key={"0, 0"} align="center" component="th">
+                <InlineMath>{mathOperator}</InlineMath>
+              </TableCell>
+              {leftItems.map((leftItem, i) => (
+                <TableCell key={`0, ${i}`} align="center" component="th">
+                  <InlineMath>{`${leftItem}`}</InlineMath>
+                </TableCell>
               ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+            </TableRow>
+            {rightItems.map((rightItem, i) => (
+              <TableRow key={i}>
+                <TableCell key={`${i}, 0`} align="center" component="th">
+                  <InlineMath>{`${rightItem}`}</InlineMath>
+                </TableCell>
+                {leftItems.map((leftItem, j) => (
+                  <TableCell key={`${i}, ${j}`} align="center">
+                    <InlineMath>{`${
+                      willShowAnswer
+                        ? calculateFunction(leftItem, rightItem)
+                        : ""
+                    }`}</InlineMath>
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   );
 }

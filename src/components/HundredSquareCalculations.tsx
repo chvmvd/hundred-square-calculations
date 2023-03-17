@@ -4,12 +4,14 @@ import { Paper, Stack, Typography, Button } from "@mui/material";
 
 export default function HundredSquareCalculations<Item>({
   title,
+  updateItems,
   mathOperator,
   leftItems,
   rightItems,
   calculateFunction,
 }: {
   title: string;
+  updateItems: () => void;
   mathOperator: string;
   leftItems: Item[];
   rightItems: Item[];
@@ -23,6 +25,9 @@ export default function HundredSquareCalculations<Item>({
           <Typography variant="h5" component="h2" flexGrow={1}>
             {title}
           </Typography>
+          <Button variant="outlined" onClick={updateItems}>
+            Reset
+          </Button>
           <Button
             variant="outlined"
             onClick={() => {

@@ -16,6 +16,10 @@ export default function Home() {
     <>
       <HundredSquareCalculations<number>
         title="Addition"
+        updateItems={() => {
+          setLeftNumbers(calculateRandomNumbers());
+          setRightNumbers(calculateRandomNumbers());
+        }}
         mathOperator="+"
         leftItems={leftNumbers}
         rightItems={rightNumbers}

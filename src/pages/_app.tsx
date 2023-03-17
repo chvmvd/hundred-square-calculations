@@ -8,6 +8,7 @@ import {
   Stack,
   Link,
   IconButton,
+  Box,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
@@ -45,7 +46,11 @@ export default function App({ Component, pageProps }: AppProps) {
         </Toolbar>
       </AppBar>
       <Toolbar />
-      <Component {...pageProps} />
+      <main>
+        <Box m={2}>
+          <Component {...pageProps} />
+        </Box>
+      </main>
     </>
   );
 }

@@ -2,6 +2,16 @@ import { InlineMath } from "react-katex";
 import "katex/dist/katex.min.css";
 import { Table, TableBody, TableRow, TableCell, Box } from "@mui/material";
 
+/**
+ * component for displaying a table of hundred-square calculations
+ * @param param0 props
+ * @param param0.mathOperator math operator to display
+ * @param param0.leftItems left items to display
+ * @param param0.rightItems right items to display
+ * @param param0.calculateFunction function to calculate the answer
+ * @param param0.willShowAnswer whether to show the answer
+ * @returns table of hundred-square calculations
+ */
 export default function HundredSquareCalculationsTable<Item>({
   mathOperator,
   leftItems,

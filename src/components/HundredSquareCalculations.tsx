@@ -2,6 +2,18 @@ import { useState } from "react";
 import HundredSquareCalculationsTable from "../components/HundredSquareCalculationsTable";
 import { Paper, Stack, Typography, Button } from "@mui/material";
 
+/**
+ * component for displaying a hundred-square calculations
+ * @param param0 props
+ * @param param0.title title to display
+ * @param param0.updateItems function to update the items
+ * @param param0.mathOperator math operator to display
+ * @param param0.leftItems left items to display
+ * @param param0.rightItems right items to display
+ * @param param0.calculateFunction function to calculate the answer
+ * @param param0.willShowAnswer whether to show the answer
+ * @returns hundred-square calculations
+ */
 export default function HundredSquareCalculations<Item>({
   title,
   updateItems,

@@ -9,7 +9,7 @@ import { Paper, Stack, Typography, Button } from "@mui/material";
  * @param param0.updateItems function to update the items
  * @param param0.mathOperator math operator to display
  * @param param0.leftItems left items to display
- * @param param0.rightItems right items to display
+ * @param param0.topItems top items to display
  * @param param0.calculateFunction function to calculate the answer
  * @param param0.willShowAnswer whether to show the answer
  * @returns hundred-square calculations
@@ -19,15 +19,15 @@ export default function HundredSquareCalculations<Item>({
   updateItems,
   mathOperator,
   leftItems,
-  rightItems,
+  topItems,
   calculateFunction,
 }: {
   title: string;
   updateItems: () => void;
   mathOperator: string;
   leftItems: Item[];
-  rightItems: Item[];
-  calculateFunction: (leftItem: Item, rightItem: Item) => Item;
+  topItems: Item[];
+  calculateFunction: (leftItem: Item, topItem: Item) => Item;
 }) {
   const [willShowAnswer, setWillShowAnswer] = useState(false);
   return (
@@ -52,7 +52,7 @@ export default function HundredSquareCalculations<Item>({
         <HundredSquareCalculationsTable<Item>
           mathOperator={mathOperator}
           leftItems={leftItems}
-          rightItems={rightItems}
+          topItems={topItems}
           calculateFunction={calculateFunction}
           willShowAnswer={willShowAnswer}
         />

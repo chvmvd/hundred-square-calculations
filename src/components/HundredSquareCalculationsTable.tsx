@@ -7,7 +7,7 @@ import { Table, TableBody, TableRow, TableCell, Box } from "@mui/material";
  * @param param0 props
  * @param param0.mathOperator math operator to display
  * @param param0.leftItems left items to display
- * @param param0.rightItems right items to display
+ * @param param0.topItems top items to display
  * @param param0.calculateFunction function to calculate the answer
  * @param param0.willShowAnswer whether to show the answer
  * @returns table of hundred-square calculations
@@ -15,14 +15,14 @@ import { Table, TableBody, TableRow, TableCell, Box } from "@mui/material";
 export default function HundredSquareCalculationsTable<Item>({
   mathOperator,
   leftItems,
-  rightItems,
+  topItems,
   calculateFunction,
   willShowAnswer = true,
 }: {
   mathOperator: string;
   leftItems: Item[];
-  rightItems: Item[];
-  calculateFunction: (leftItem: Item, rightItem: Item) => Item;
+  topItems: Item[];
+  calculateFunction: (leftItem: Item, topItem: Item) => Item;
   willShowAnswer?: boolean;
 }) {
   return (
@@ -49,7 +49,7 @@ export default function HundredSquareCalculationsTable<Item>({
               </TableCell>
             ))}
           </TableRow>
-          {rightItems.map((rightItem, i) => (
+          {topItems.map((rightItem, i) => (
             <TableRow key={i}>
               <TableCell
                 key={`${i}, 0`}

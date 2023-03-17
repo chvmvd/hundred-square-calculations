@@ -33,7 +33,7 @@ export default function HundredSquareCalculations<Item>({
   return (
     <>
       <Paper sx={{ p: 2 }}>
-        <Stack direction="row" spacing={2} pl={3} pr={5} mb={1}>
+        <Stack direction="row" spacing={2} pl={2} mb={1}>
           <Typography variant="h5" component="h2" flexGrow={1}>
             {title}
           </Typography>

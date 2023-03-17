@@ -18,23 +18,23 @@ export default function HundredSquareCalculationsTable<Item>({
     <>
       <table>
         <tbody>
-          <tr>
-            <td>
+          <tr key={0}>
+            <td key={"0, 0"}>
               <InlineMath>{mathOperator}</InlineMath>
             </td>
             {leftItems.map((leftItem, i) => (
-              <td key={i}>
+              <td key={`0, ${i}`}>
                 <InlineMath>{`${leftItem}`}</InlineMath>
               </td>
             ))}
           </tr>
           {rightItems.map((rightItem, i) => (
             <tr key={i}>
-              <td>
+              <td key={`${i}, 0`}>
                 <InlineMath>{`${rightItem}`}</InlineMath>
               </td>
               {leftItems.map((leftItem, j) => (
-                <td key={`${i},${j}`}>
+                <td key={`${i}, ${j}`}>
                   <InlineMath>{`${
                     willShowAnswer ? calculateFunction(leftItem, rightItem) : ""
                   }`}</InlineMath>

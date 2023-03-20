@@ -1,30 +1,68 @@
-import { useState, useEffect } from "react";
-import HundredSquareCalculations from "../components/HundredSquareCalculations";
+import { useRouter } from "next/router";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  Typography,
+  Grid,
+} from "@mui/material";
+import { BlockMath } from "react-katex";
+import "katex/dist/katex.min.css";
 
-function calculateRandomNumbers() {
-  return [...Array(9)].map((_) => Math.ceil(Math.random() * 9));
+function NavigationCard(props: {
+  title: string;
+  description: string;
+  example: string;
+  href: string;
+}) {
+  const router = useRouter();
+  return (
+    <>
+      <Card>
+        <CardActionArea
+          onClick={async () => {
+            await router.push(props.href);
+          }}
+        >
+          <CardContent>
+            <Typography variant="h5" component="h1">
+              {props.title}
+            </Typography>
+            <Typography variant="body1" component="p">
+              {props.description}
+            </Typography>
+            <Typography variant="body1" component="div">
+              example:
+              <BlockMath>{props.example}</BlockMath>
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </>
+  );
 }
 
 export default function Home() {
-  const [leftNumbers, setLeftNumbers] = useState([...Array(9)].map(() => 1));
-  const [rightNumbers, setRightNumbers] = useState([...Array(9)].map(() => 1));
-  useEffect(() => {
-    setLeftNumbers(calculateRandomNumbers());
-    setRightNumbers(calculateRandomNumbers());
-  }, []);
   return (
     <>
-      <HundredSquareCalculations<number>
-        title="Addition"
-        updateItems={() => {
-          setLeftNumbers(calculateRandomNumbers());
-          setRightNumbers(calculateRandomNumbers());
-        }}
-        mathOperator="+"
-        leftItems={leftNumbers}
-        rightItems={rightNumbers}
-        calculateFunction={(leftItem, rightItem) => leftItem + rightItem}
-      />
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <NavigationCard
+            title="Addition"
+            description="Add the numbers in the top row to the numbers in the left column."
+            example="1 + 1 = 2"
+            href="/addition"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <NavigationCard
+            title="Addition"
+            description="Add the numbers in the top row to the numbers in the left column."
+            example="1 + 1 = 2"
+            href="/addition"
+          />
+        </Grid>
+      </Grid>
     </>
   );
 }

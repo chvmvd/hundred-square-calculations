@@ -62,6 +62,14 @@ export default function Home() {
             href="/subtraction"
           />
         </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <NavigationCard
+            title="Multiplication"
+            description="Multiply the numbers in the top row by the numbers in the left column."
+            example="2 \times 2 = 4"
+            href="/multiplication"
+          />
+        </Grid>
       </Grid>
     </>
   );

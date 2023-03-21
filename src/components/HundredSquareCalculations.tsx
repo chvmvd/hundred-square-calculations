@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import HundredSquareCalculationsTable from "../components/HundredSquareCalculationsTable";
 import { Paper, Stack, Typography, Button } from "@mui/material";
 
@@ -6,30 +6,32 @@ import { Paper, Stack, Typography, Button } from "@mui/material";
  * component for displaying a hundred-square calculations
  * @param param0 props
  * @param param0.title title to display
- * @param param0.updateItems function to update the items
  * @param param0.mathOperator math operator to display
- * @param param0.leftItems left items to display
- * @param param0.topItems top items to display
  * @param param0.calculateFunction function to calculate the answer
- * @param param0.willShowAnswer whether to show the answer
+ * @param param0.createRandomItemFunction function to create a random item
  * @returns hundred-square calculations
  */
 export default function HundredSquareCalculations<Item>({
   title,
-  updateItems,
   mathOperator,
-  leftItems,
-  topItems,
   calculateFunction,
+  createRandomItemFunction,
 }: {
   title: string;
-  updateItems: () => void;
   mathOperator: string;
-  leftItems: Item[];
-  topItems: Item[];
   calculateFunction: (leftItem: Item, topItem: Item) => Item;
+  createRandomItemFunction: () => Item;
 }) {
+  const [leftItems, setLeftItems] = useState<Item[]>([...Array(9)]);
+  const [topItems, setTopItems] = useState<Item[]>([...Array(9)]);
   const [willShowAnswer, setWillShowAnswer] = useState(false);
+  const updateItems = useCallback(() => {
+    setLeftItems([...Array(9)].map(() => createRandomItemFunction()));
+    setTopItems([...Array(9)].map(() => createRandomItemFunction()));
+  }, [createRandomItemFunction]);
+  useEffect(() => {
+    updateItems();
+  }, [updateItems]);
   return (
     <>
       <Paper sx={{ p: 2 }}>

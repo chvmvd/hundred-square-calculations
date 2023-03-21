@@ -56,10 +56,10 @@ export default function Home() {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <NavigationCard
-            title="Addition"
-            description="Add the numbers in the top row to the numbers in the left column."
-            example="1 + 1 = 2"
-            href="/addition"
+            title="Subtraction"
+            description="Subtract the numbers in the left column from the numbers in the top row."
+            example="2 - 1 = 1"
+            href="/subtraction"
           />
         </Grid>
       </Grid>

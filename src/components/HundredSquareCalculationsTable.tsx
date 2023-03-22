@@ -41,18 +41,18 @@ export default function HundredSquareCalculationsTable<Item>({
             >
               <InlineMath>{mathOperator}</InlineMath>
             </TableCell>
-            {leftItems.map((leftItem, i) => (
+            {topItems.map((topItem, i) => (
               <TableCell
                 key={`0, ${i}`}
                 align="center"
                 component="th"
                 sx={{ border: 1 }}
               >
-                <InlineMath>{itemTeXView(leftItem)}</InlineMath>
+                <InlineMath>{itemTeXView(topItem)}</InlineMath>
               </TableCell>
             ))}
           </TableRow>
-          {topItems.map((rightItem, i) => (
+          {leftItems.map((leftItem, i) => (
             <TableRow key={i}>
               <TableCell
                 key={`${i}, 0`}
@@ -60,14 +60,14 @@ export default function HundredSquareCalculationsTable<Item>({
                 component="th"
                 sx={{ border: 1 }}
               >
-                <InlineMath>{itemTeXView(rightItem)}</InlineMath>
+                <InlineMath>{itemTeXView(leftItem)}</InlineMath>
               </TableCell>
-              {leftItems.map((leftItem, j) => (
+              {topItems.map((topItem, j) => (
                 <TableCell key={`${i}, ${j}`} align="center" sx={{ border: 1 }}>
                   <Box sx={{ color: "red" }}>
                     <InlineMath>{`${
                       willShowAnswer
-                        ? itemTeXView(calculateFunction(leftItem, rightItem))
+                        ? itemTeXView(calculateFunction(leftItem, topItem))
                         : ""
                     }`}</InlineMath>
                   </Box>

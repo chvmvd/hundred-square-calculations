@@ -57,7 +57,7 @@ export default function Home() {
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <NavigationCard
             title="Subtraction"
-            description="Subtract the numbers in the left column from the numbers in the top row."
+            description="Subtract the numbers in the top row from the numbers in the left column."
             example="2 - 1 = 1"
             href="/subtraction"
           />

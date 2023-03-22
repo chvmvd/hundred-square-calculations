@@ -49,7 +49,7 @@ export default function Home() {
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <NavigationCard
             title="Addition"
-            description="Add the numbers in the top row to the numbers in the left column."
+            description="Add the number in the top row to the number in the left column."
             example="1 + 1 = 2"
             href="/addition"
           />
@@ -57,7 +57,7 @@ export default function Home() {
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <NavigationCard
             title="Subtraction"
-            description="Subtract the numbers in the top row from the numbers in the left column."
+            description="Subtract the number in the top row from the number in the left column."
             example="2 - 1 = 1"
             href="/subtraction"
           />
@@ -65,7 +65,7 @@ export default function Home() {
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <NavigationCard
             title="Multiplication"
-            description="Multiply the numbers in the top row by the numbers in the left column."
+            description="Multiply the number in the top row by the number in the left column."
             example="2 \times 2 = 4"
             href="/multiplication"
           />

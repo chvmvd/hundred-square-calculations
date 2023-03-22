@@ -70,6 +70,14 @@ export default function Home() {
             href="/multiplication"
           />
         </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <NavigationCard
+            title="Outer Product"
+            description="Calculate the outer product of the number in the left column and the number in the top row."
+            example={String.raw`\begin{pmatrix} 2 \\ 5 \\ 9 \end{pmatrix}\times \begin{pmatrix} 1 \\ 4 \\ 9 \end{pmatrix} = \begin{pmatrix} 3 \\ -9 \\ 9 \end{pmatrix}`}
+            href="/outer-product"
+          />
+        </Grid>
       </Grid>
     </>
   );

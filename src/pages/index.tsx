@@ -56,14 +56,6 @@ export default function Home() {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <NavigationCard
-            title="Subtraction"
-            description="Subtract the number in the top row from the number in the left column."
-            example="2 - 1 = 1"
-            href="/subtraction"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          <NavigationCard
             title="Multiplication"
             description="Multiply the number in the top row by the number in the left column."
             example="2 \times 2 = 4"

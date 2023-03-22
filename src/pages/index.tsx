@@ -70,6 +70,14 @@ export default function Home() {
             href="/outer-product"
           />
         </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <NavigationCard
+            title="Inner Product"
+            description="Calculate the inner product of the number in the left column and the number in the top row."
+            example={String.raw`\begin{pmatrix} 4 \\ 1 \\ 1 \end{pmatrix}\cdot \begin{pmatrix} 2 \\ 4 \\ 6 \end{pmatrix} = 18`}
+            href="/inner-product"
+          />
+        </Grid>
       </Grid>
     </>
   );

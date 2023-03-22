@@ -3,7 +3,10 @@ import HundredSquareCalculations from "../components/HundredSquareCalculations";
 export default function OuterProduct() {
   return (
     <>
-      <HundredSquareCalculations<[number, number, number]>
+      <HundredSquareCalculations<
+        [number, number, number],
+        [number, number, number]
+      >
         title="Outer Product"
         mathOperator="\times"
         calculateFunction={(leftItem, topItem) => [
@@ -11,7 +14,10 @@ export default function OuterProduct() {
           leftItem[2] * topItem[0] - leftItem[0] * topItem[2],
           leftItem[1] * topItem[2] - leftItem[2] * topItem[1],
         ]}
-        itemTeXView={(item) =>
+        inputItemTeXView={(item) =>
+          String.raw`\begin{pmatrix} ${item[0]} \\ ${item[1]} \\ ${item[2]} \end{pmatrix}`
+        }
+        outputItemTeXView={(item) =>
           String.raw`\begin{pmatrix} ${item[0]} \\ ${item[1]} \\ ${item[2]} \end{pmatrix}`
         }
         createRandomItemFunction={() =>

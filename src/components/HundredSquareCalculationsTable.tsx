@@ -8,24 +8,27 @@ import { Table, TableBody, TableRow, TableCell, Box } from "@mui/material";
  * @param param0.mathOperator math operator to display
  * @param param0.leftItems left items to display
  * @param param0.topItems top items to display
- * @param param0.itemTeXView function to display an item
+ * @param param0.inputItemTeXView function to display an input item
+ * @param param0.outputItemTeXView function to display an output item
  * @param param0.calculateFunction function to calculate the answer
  * @param param0.willShowAnswer whether to show the answer
  * @returns table of hundred-square calculations
  */
-export default function HundredSquareCalculationsTable<Item>({
+export default function HundredSquareCalculationsTable<InputItem, OutputItem>({
   mathOperator,
   leftItems,
   topItems,
-  itemTeXView,
+  inputItemTeXView,
+  outputItemTeXView,
   calculateFunction,
   willShowAnswer = true,
 }: {
   mathOperator: string;
-  leftItems: Item[];
-  topItems: Item[];
-  itemTeXView: (item: Item) => string;
-  calculateFunction: (leftItem: Item, topItem: Item) => Item;
+  leftItems: InputItem[];
+  topItems: InputItem[];
+  inputItemTeXView: (item: InputItem) => string;
+  outputItemTeXView: (item: OutputItem) => string;
+  calculateFunction: (leftItem: InputItem, topItem: InputItem) => OutputItem;
   willShowAnswer?: boolean;
 }) {
   return (
@@ -48,7 +51,7 @@ export default function HundredSquareCalculationsTable<Item>({
                 component="th"
                 sx={{ border: 1 }}
               >
-                <InlineMath>{itemTeXView(topItem)}</InlineMath>
+                <InlineMath>{inputItemTeXView(topItem)}</InlineMath>
               </TableCell>
             ))}
           </TableRow>
@@ -60,14 +63,16 @@ export default function HundredSquareCalculationsTable<Item>({
                 component="th"
                 sx={{ border: 1 }}
               >
-                <InlineMath>{itemTeXView(leftItem)}</InlineMath>
+                <InlineMath>{inputItemTeXView(leftItem)}</InlineMath>
               </TableCell>
               {topItems.map((topItem, j) => (
                 <TableCell key={`${i}, ${j}`} align="center" sx={{ border: 1 }}>
                   <Box sx={{ color: "red" }}>
                     <InlineMath>{`${
                       willShowAnswer
-                        ? itemTeXView(calculateFunction(leftItem, topItem))
+                        ? outputItemTeXView(
+                            calculateFunction(leftItem, topItem)
+                          )
                         : ""
                     }`}</InlineMath>
                   </Box>

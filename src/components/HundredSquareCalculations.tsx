@@ -7,28 +7,31 @@ import { Paper, Stack, Typography, Button } from "@mui/material";
  * @param param0 props
  * @param param0.title title to display
  * @param param0.mathOperator math operator to display
- * @param param0.itemTeXView function to display an item
+ * @param param0.inputItemTeXView function to display an input item
+ * @param param0.outputItemTeXView function to display an output item
  * @param param0.calculateFunction function to calculate the answer
  * @param param0.createRandomItemFunction function to create a random item
  * @returns hundred-square calculations
  */
-export default function HundredSquareCalculations<Item>({
+export default function HundredSquareCalculations<InputItem, OutputItem>({
   title,
   mathOperator,
-  itemTeXView,
+  inputItemTeXView,
+  outputItemTeXView,
   calculateFunction,
   createRandomItemFunction,
 }: {
   title: string;
   mathOperator: string;
-  itemTeXView: (item: Item) => string;
-  calculateFunction: (leftItem: Item, topItem: Item) => Item;
-  createRandomItemFunction: () => Item;
+  inputItemTeXView: (item: InputItem) => string;
+  outputItemTeXView: (item: OutputItem) => string;
+  calculateFunction: (leftItem: InputItem, topItem: InputItem) => OutputItem;
+  createRandomItemFunction: () => InputItem;
 }) {
-  const [leftItems, setLeftItems] = useState<Item[]>(
+  const [leftItems, setLeftItems] = useState<InputItem[]>(
     [...Array(9)].map(() => createRandomItemFunction())
   );
-  const [topItems, setTopItems] = useState<Item[]>(
+  const [topItems, setTopItems] = useState<InputItem[]>(
     [...Array(9)].map(() => createRandomItemFunction())
   );
   const [willShowAnswer, setWillShowAnswer] = useState(false);
@@ -58,11 +61,12 @@ export default function HundredSquareCalculations<Item>({
             {willShowAnswer ? "Hide Answer" : "Show Answer"}
           </Button>
         </Stack>
-        <HundredSquareCalculationsTable<Item>
+        <HundredSquareCalculationsTable<InputItem, OutputItem>
           mathOperator={mathOperator}
           leftItems={leftItems}
           topItems={topItems}
-          itemTeXView={itemTeXView}
+          inputItemTeXView={inputItemTeXView}
+          outputItemTeXView={outputItemTeXView}
           calculateFunction={calculateFunction}
           willShowAnswer={willShowAnswer}
         />

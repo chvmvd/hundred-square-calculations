@@ -6,6 +6,7 @@ export default function Addition() {
       <HundredSquareCalculations<number>
         title="Addition"
         mathOperator="+"
+        itemTeXView={(item) => `${item}`}
         calculateFunction={(leftItem, topItem) => leftItem + topItem}
         createRandomItemFunction={() => Math.ceil(Math.random() * 9)}
       />

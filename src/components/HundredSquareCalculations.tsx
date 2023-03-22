@@ -7,6 +7,7 @@ import { Paper, Stack, Typography, Button } from "@mui/material";
  * @param param0 props
  * @param param0.title title to display
  * @param param0.mathOperator math operator to display
+ * @param param0.itemTeXView function to display an item
  * @param param0.calculateFunction function to calculate the answer
  * @param param0.createRandomItemFunction function to create a random item
  * @returns hundred-square calculations
@@ -14,11 +15,13 @@ import { Paper, Stack, Typography, Button } from "@mui/material";
 export default function HundredSquareCalculations<Item>({
   title,
   mathOperator,
+  itemTeXView,
   calculateFunction,
   createRandomItemFunction,
 }: {
   title: string;
   mathOperator: string;
+  itemTeXView: (item: Item) => string;
   calculateFunction: (leftItem: Item, topItem: Item) => Item;
   createRandomItemFunction: () => Item;
 }) {
@@ -55,6 +58,7 @@ export default function HundredSquareCalculations<Item>({
           mathOperator={mathOperator}
           leftItems={leftItems}
           topItems={topItems}
+          itemTeXView={itemTeXView}
           calculateFunction={calculateFunction}
           willShowAnswer={willShowAnswer}
         />

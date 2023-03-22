@@ -8,6 +8,7 @@ import { Table, TableBody, TableRow, TableCell, Box } from "@mui/material";
  * @param param0.mathOperator math operator to display
  * @param param0.leftItems left items to display
  * @param param0.topItems top items to display
+ * @param param0.itemTeXView function to display an item
  * @param param0.calculateFunction function to calculate the answer
  * @param param0.willShowAnswer whether to show the answer
  * @returns table of hundred-square calculations
@@ -16,12 +17,14 @@ export default function HundredSquareCalculationsTable<Item>({
   mathOperator,
   leftItems,
   topItems,
+  itemTeXView,
   calculateFunction,
   willShowAnswer = true,
 }: {
   mathOperator: string;
   leftItems: Item[];
   topItems: Item[];
+  itemTeXView: (item: Item) => string;
   calculateFunction: (leftItem: Item, topItem: Item) => Item;
   willShowAnswer?: boolean;
 }) {
@@ -45,7 +48,7 @@ export default function HundredSquareCalculationsTable<Item>({
                 component="th"
                 sx={{ border: 1 }}
               >
-                <InlineMath>{`${leftItem}`}</InlineMath>
+                <InlineMath>{itemTeXView(leftItem)}</InlineMath>
               </TableCell>
             ))}
           </TableRow>
@@ -57,14 +60,14 @@ export default function HundredSquareCalculationsTable<Item>({
                 component="th"
                 sx={{ border: 1 }}
               >
-                <InlineMath>{`${rightItem}`}</InlineMath>
+                <InlineMath>{itemTeXView(rightItem)}</InlineMath>
               </TableCell>
               {leftItems.map((leftItem, j) => (
                 <TableCell key={`${i}, ${j}`} align="center" sx={{ border: 1 }}>
                   <Box sx={{ color: "red" }}>
                     <InlineMath>{`${
                       willShowAnswer
-                        ? calculateFunction(leftItem, rightItem)
+                        ? itemTeXView(calculateFunction(leftItem, rightItem))
                         : ""
                     }`}</InlineMath>
                   </Box>

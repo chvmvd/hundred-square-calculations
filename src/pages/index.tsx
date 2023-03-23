@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Grid item xs={12} md={6} lg={4}>
           <NavigationCard
             title="Addition"
             description="Add the number in the top row to the number in the left column."
@@ -54,7 +54,7 @@ export default function Home() {
             href="/addition"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Grid item xs={12} md={6} lg={4}>
           <NavigationCard
             title="Multiplication"
             description="Multiply the number in the top row by the number in the left column."
@@ -62,7 +62,7 @@ export default function Home() {
             href="/multiplication"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Grid item xs={12} md={6} lg={4}>
           <NavigationCard
             title="Outer Product"
             description="Calculate the outer product of the number in the left column and the number in the top row."
@@ -70,7 +70,7 @@ export default function Home() {
             href="/outer-product"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Grid item xs={12} md={6} lg={4}>
           <NavigationCard
             title="Inner Product"
             description="Calculate the inner product of the number in the left column and the number in the top row."
@@ -78,7 +78,7 @@ export default function Home() {
             href="/inner-product"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Grid item xs={12} md={6} lg={4}>
           <NavigationCard
             title="2x2 Matrix"
             description="Calculate the product of the matrix in the left column and the matrix in the top row."
@@ -86,7 +86,7 @@ export default function Home() {
             href="/2x2-matrix"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Grid item xs={12} md={6} lg={4}>
           <NavigationCard
             title="3x3 Matrix"
             description="Calculate the product of the matrix in the left column and the matrix in the top row."

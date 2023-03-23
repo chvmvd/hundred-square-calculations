@@ -86,6 +86,15 @@ export default function Home() {
             href="/2x2-matrix"
           />
         </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <NavigationCard
+            title="3x3 Matrix"
+            description="Calculate the product of the matrix in the left column and the matrix in the top row."
+            example={String.raw`\begin{pmatrix} 2 & 7 & 3 \\ 2 & 3 & 7 \\ 1 & 6 & 9 \end{pmatrix} \begin{pmatrix} 4 & 6 & 5 \\ 4 & 5 & 2 \\ 7 & 4 & 9 \end{pmatrix} = \begin{pmatrix} 57 & 59 & 51 \\ 69 & 55 & 79 \\ 91 & 72 & 98 \end{pmatrix}`}
+            href="/3x3-matrix"
+          />
+        </Grid>
+        <s></s>
       </Grid>
     </>
   );

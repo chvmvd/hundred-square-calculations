@@ -64,18 +64,18 @@ export default function Home() {
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
           <NavigationCard
-            title="Outer Product"
-            description="Calculate the outer product of the number in the left column and the number in the top row."
-            example={String.raw`\begin{pmatrix} 2 \\ 5 \\ 9 \end{pmatrix}\times \begin{pmatrix} 1 \\ 4 \\ 9 \end{pmatrix} = \begin{pmatrix} 3 \\ -9 \\ 9 \end{pmatrix}`}
-            href="/outer-product"
-          />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <NavigationCard
             title="Inner Product"
             description="Calculate the inner product of the number in the left column and the number in the top row."
             example={String.raw`\begin{pmatrix} 4 \\ 1 \\ 1 \end{pmatrix}\cdot \begin{pmatrix} 2 \\ 4 \\ 6 \end{pmatrix} = 18`}
             href="/inner-product"
+          />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <NavigationCard
+            title="Outer Product"
+            description="Calculate the outer product of the number in the left column and the number in the top row."
+            example={String.raw`\begin{pmatrix} 2 \\ 5 \\ 9 \end{pmatrix}\times \begin{pmatrix} 1 \\ 4 \\ 9 \end{pmatrix} = \begin{pmatrix} 3 \\ -9 \\ 9 \end{pmatrix}`}
+            href="/outer-product"
           />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>

@@ -9,11 +9,6 @@ export default function OuterProduct() {
       >
         title="Outer Product"
         mathOperator="\times"
-        calculateFunction={(leftItem, topItem) => [
-          leftItem[0] * topItem[1] - leftItem[1] * topItem[0],
-          leftItem[2] * topItem[0] - leftItem[0] * topItem[2],
-          leftItem[1] * topItem[2] - leftItem[2] * topItem[1],
-        ]}
         inputItemTeXView={(item) =>
           String.raw`\begin{pmatrix} ${item[0]} \\ ${item[1]} \\ ${item[2]} \end{pmatrix}`
         }
@@ -26,10 +21,10 @@ export default function OuterProduct() {
           } \end{pmatrix} \times \begin{pmatrix} ${topItem[0]} \\ ${
             topItem[1]
           } \\ ${topItem[2]} \end{pmatrix} = \begin{pmatrix}
-            ${leftItem[0]} \times ${topItem[1]} - ${leftItem[1]} \times ${
+          ${leftItem[0]} \times ${topItem[1]} - ${leftItem[1]} \times ${
             topItem[0]
           }
-           \\ ${leftItem[2]} \times ${topItem[0]} - ${leftItem[0]} \times ${
+          \\ ${leftItem[2]} \times ${topItem[0]} - ${leftItem[0]} \times ${
             topItem[2]
           } \\ ${leftItem[1]} \times ${topItem[2]} - ${leftItem[2]} \times ${
             topItem[1]
@@ -39,6 +34,11 @@ export default function OuterProduct() {
             leftItem[1] * topItem[2] - leftItem[2] * topItem[1]
           } \end{pmatrix}`
         }
+        calculateFunction={(leftItem, topItem) => [
+          leftItem[0] * topItem[1] - leftItem[1] * topItem[0],
+          leftItem[2] * topItem[0] - leftItem[0] * topItem[2],
+          leftItem[1] * topItem[2] - leftItem[2] * topItem[1],
+        ]}
         createRandomItemFunction={() =>
           [...Array(3)].map(() => Math.ceil(Math.random() * 9)) as [
             number,

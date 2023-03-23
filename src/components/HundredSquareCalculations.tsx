@@ -33,15 +33,15 @@ export default function HundredSquareCalculations<InputItem, OutputItem>({
   createRandomItemFunction: () => InputItem;
 }) {
   const [leftItems, setLeftItems] = useState<InputItem[]>(
-    [...Array(9)].map(() => createRandomItemFunction())
+    [...Array(10)].map(() => createRandomItemFunction())
   );
   const [topItems, setTopItems] = useState<InputItem[]>(
-    [...Array(9)].map(() => createRandomItemFunction())
+    [...Array(10)].map(() => createRandomItemFunction())
   );
   const [willShowAnswer, setWillShowAnswer] = useState(false);
   const updateItems = useCallback(() => {
-    setLeftItems([...Array(9)].map(() => createRandomItemFunction()));
-    setTopItems([...Array(9)].map(() => createRandomItemFunction()));
+    setLeftItems([...Array(10)].map(() => createRandomItemFunction()));
+    setTopItems([...Array(10)].map(() => createRandomItemFunction()));
   }, [createRandomItemFunction]);
   useEffect(() => {
     updateItems();

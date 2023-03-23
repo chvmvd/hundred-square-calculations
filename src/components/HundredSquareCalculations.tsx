@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import HundredSquareCalculationsTable from "../components/HundredSquareCalculationsTable";
-import { Paper, Stack, Typography, Button } from "@mui/material";
+import Answer from "../components/Answer";
+import { Paper, Stack, Typography, Button, Box } from "@mui/material";
 
 /**
  * component for displaying a hundred-square calculations
@@ -9,6 +10,7 @@ import { Paper, Stack, Typography, Button } from "@mui/material";
  * @param param0.mathOperator math operator to display
  * @param param0.inputItemTeXView function to display an input item
  * @param param0.outputItemTeXView function to display an output item
+ * @param param0.howToCalculate function to display how to calculate the answer
  * @param param0.calculateFunction function to calculate the answer
  * @param param0.createRandomItemFunction function to create a random item
  * @returns hundred-square calculations
@@ -18,6 +20,7 @@ export default function HundredSquareCalculations<InputItem, OutputItem>({
   mathOperator,
   inputItemTeXView,
   outputItemTeXView,
+  howToCalculate,
   calculateFunction,
   createRandomItemFunction,
 }: {
@@ -25,6 +28,7 @@ export default function HundredSquareCalculations<InputItem, OutputItem>({
   mathOperator: string;
   inputItemTeXView: (item: InputItem) => string;
   outputItemTeXView: (item: OutputItem) => string;
+  howToCalculate: (leftItem: InputItem, topItem: InputItem) => string;
   calculateFunction: (leftItem: InputItem, topItem: InputItem) => OutputItem;
   createRandomItemFunction: () => InputItem;
 }) {
@@ -70,6 +74,18 @@ export default function HundredSquareCalculations<InputItem, OutputItem>({
           calculateFunction={calculateFunction}
           willShowAnswer={willShowAnswer}
         />
+        {willShowAnswer && (
+          <Box p={2}>
+            <Typography variant="h6" component="h3" pt={1} pb={1}>
+              Answer
+            </Typography>
+            <Answer<InputItem>
+              leftItems={leftItems}
+              topItems={topItems}
+              howToCalculate={howToCalculate}
+            />
+          </Box>
+        )}
       </Paper>
     </>
   );

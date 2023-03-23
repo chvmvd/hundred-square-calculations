@@ -8,6 +8,9 @@ export default function Addition() {
         mathOperator="+"
         inputItemTeXView={(item) => `${item}`}
         outputItemTeXView={(item) => `${item}`}
+        howToCalculate={(leftItem, topItem) =>
+          `${leftItem} + ${topItem} = ${leftItem + topItem}`
+        }
         calculateFunction={(leftItem, topItem) => leftItem + topItem}
         createRandomItemFunction={() => Math.ceil(Math.random() * 9)}
       />

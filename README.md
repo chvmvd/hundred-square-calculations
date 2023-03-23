@@ -9,6 +9,8 @@
 
 This is software for making Hundred-Square Calculations automatically.
 
+https://user-images.githubusercontent.com/104971044/227234231-620a81ec-982f-4cd7-afd6-aeb548ea6db7.mov
+
 ## Table of Contents
 
 - [About](#about)

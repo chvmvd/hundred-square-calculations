@@ -78,6 +78,14 @@ export default function Home() {
             href="/inner-product"
           />
         </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <NavigationCard
+            title="2x2 Matrix"
+            description="Calculate the product of the matrix in the left column and the matrix in the top row."
+            example={String.raw`\begin{pmatrix} 1 & 7 \\ 5 & 7 \end{pmatrix} \begin{pmatrix} 7 & 6 \\ 2 & 2 \end{pmatrix} = \begin{pmatrix} 21 & 20 \\ 49 & 44 \end{pmatrix}`}
+            href="/2x2-matrix"
+          />
+        </Grid>
       </Grid>
     </>
   );
